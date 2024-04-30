@@ -24,24 +24,28 @@
             <li><a href="{{route('ratex.index')}}" class="nav-link px-2">Тарифы</a></li>
             <li><a href="{{route('company.index')}}" class="nav-link px-2">О компании</a></li>
             <li><a href="{{route('faq.index')}}" class="nav-link px-2">Вопрос-ответ</a></li>
+            
          </ul>
 
          <div class="col-md-3 text-end">
 
-               <a class='btn btn-outline-primary me-2' role="button" aria-disabled="true" href="{{route('auth.index')}}">Войти</a>
-               <a class='btn btn-primary' role="button" aria-disabled="true" href="{{route('registration.index')}}">Зарегистрироваться</a>
-           
+         @cannot('viewLogout')
+            <a class='btn btn-outline-primary me-2' role="button" aria-disabled="true" href="{{route('auth.index')}}">Войти</a>
+            <a class='btn btn-primary' role="button" aria-disabled="true" href="{{route('registration.index')}}">Зарегистрироваться</a>
+         @endcannot
+               @can('viewLogout')
                <div class="btn-group">
                   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Пользователь</button>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="/pages/profile.php">Личный кабинет</a></li>
-                     <li><a class="dropdown-item" href="/">На главную</a></li>
+                     <li><a class="dropdown-item" href="{{route('profile.show')}}">Личный кабинет</a></li>
+                     <li><a class="dropdown-item" href="{{route('jkh.index')}}">На главную</a></li>
                      <li>
                         <hr class="dropdown-divider">
                      </li>
-                     <li><a class="dropdown-item" href="/database/logout.php" style = 'color: red;'>Выйти из аккаунта</a></li>
+                     <li><a class="dropdown-item" href="{{ route('auth.logout') }}" style = 'color: red;'>Выйти из аккаунта</a></li>
                   </ul>
                </div>
+               @endcan
 
          </div>
       </header>

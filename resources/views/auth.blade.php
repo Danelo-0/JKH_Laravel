@@ -7,10 +7,13 @@
    <div class="bg-white border rounded-5">
 
       <section class="w-100 p-4 d-flex justify-content-center pb-4">
-         <form style="width: 22rem;" data-gtm-form-interact-id="0" method="post" action="#">
+         <form style="width: 22rem;" data-gtm-form-interact-id="0" method="post" action="{{ route('auth.store') }}">
+         @csrf
             <p class="h3">Вход</p>
-            
 
+            @error('login')
+               <p style='color:red'>{{$message}}</p>
+            @enderror
             <div class="form-outline mb-4">
                <input type="text" name='login' class="form-control" value="">
                <label class="form-label" for="form2Example1" style="margin-left: 0px;">Логин</label>
@@ -33,7 +36,7 @@
             <input name="done" type="submit" class="btn btn-primary btn-block mb-4" style="width:100%" value="Войти">
 
             <div class="text-center">
-               <p>Вы не зарегистрированы? <a href="/registration.php">Зарегистрироваться</a></p>
+               <p>Вы не зарегистрированы? <a href="{{ route('registration.index') }}">Зарегистрироваться</a></p>
             </div>
          </form>
       </section>
