@@ -24,4 +24,12 @@ Route::get('/jkh/faq', [IndexController::class, 'faqIndex'])->name('faq.index');
 
 Route::get('/jkh/auth', [IndexController::class, 'authIndex'])->name('auth.index');
 
+Route::post('/jkh/auth', [IndexController::class, 'authStore'])->name('auth.store');
+
+Route::get('/jkh/logout', [IndexController::class, 'logout'])->name('auth.logout');
+
 Route::get('/jkh/registration', [IndexController::class, 'registrationIndex'])->name('registration.index');
+
+Route::post('/jkh/registration', [IndexController::class, 'registrationStore'])->name('registration.store');
+
+Route::get('/jkh/profile', [IndexController::class, 'profileShow'])->name('profile.show');
