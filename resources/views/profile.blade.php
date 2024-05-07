@@ -11,7 +11,7 @@
                   <h5 class="my-3"></h5>
                   <p class="text-muted mb-4">Ваш личный кабинет на сайте "Коммунальные услуги"</p>
                   <div class="d-flex justify-content-center mb-2">
-                     <a class='btn btn-primary' role="button" aria-disabled="true" href="/pages/editInfo.php">Добавить или изменить информацию о вас</a>
+                     <a class='btn btn-primary' role="button" aria-disabled="true" href="{{ route('editinfo.show') }}">Добавить или изменить информацию о вас</a>
                   </div>
                </div>
             </div>
