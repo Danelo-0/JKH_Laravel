@@ -26,4 +26,9 @@ class User extends Authenticatable
         'password',
         'status',
     ];
+
+    public function userInfo()
+    {
+        return $this->hasOne(User_info::class);
+    }
 }
