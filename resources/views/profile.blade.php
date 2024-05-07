@@ -27,7 +27,13 @@
                         <p class="mb-0">ФИО</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0">{{$user->login}}</p>
+                        <p class="text-muted mb-0">
+                           @if($user->userInfo->name == null && $user->userInfo->surname == null && $user->userInfo->middle_name == null)
+                           Данные о пользователе отсутствуют
+                           @else
+                           {{$user->userInfo->name}} {{$user->userInfo->surname}} {{$user->userInfo->middle_name}}
+                           @endif
+                        </p>
                      </div>
                   </div>
                   <hr>
@@ -36,7 +42,13 @@
                         <p class="mb-0">Телефон</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0"></p>
+                        <p class="text-muted mb-0"> 
+                           @if($user->userInfo->phone == null)
+                           Данные о пользователе отсутствуют
+                           @else
+                           {{$user->userInfo->phone}}
+                           @endif
+                        </p>
                      </div>
                   </div>
                   <hr>
@@ -45,7 +57,13 @@
                         <p class="mb-0">Серия и номер паспорта</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0"></p>
+                        <p class="text-muted mb-0">
+                           @if($user->userInfo->passport == null)
+                           Данные о пользователе отсутствуют
+                           @else
+                           {{$user->userInfo->passport}}
+                           @endif
+                        </p>
                      </div>
                   </div>
                   <hr>
@@ -54,7 +72,12 @@
                         <p class="mb-0">ИНН</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0"></p>
+                        <p class="text-muted mb-0">
+                           @if($user->userInfo->inn == null)
+                           Данные о пользователе отсутствуют
+                           @else
+                           {{$user->userInfo->inn}}
+                           @endif</p>
                      </div>
                   </div>
                   <hr>
@@ -63,7 +86,12 @@
                         <p class="mb-0">СНИЛС</p>
                      </div>
                      <div class="col-sm-9">
-                        <p class="text-muted mb-0"></p>
+                        <p class="text-muted mb-0">
+                           @if($user->userInfo->snils == null)
+                           Данные о пользователе отсутствуют
+                           @else
+                           {{$user->userInfo->snils}}
+                           @endif</p>
                      </div>
                   </div>
                </div>
