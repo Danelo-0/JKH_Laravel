@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EditInfoRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\MessageRequest;
 use App\Http\Requests\RegistrationRequest;
+use App\Models\Message;
 use App\Models\User;
 use App\Models\User_info;
 use Illuminate\Http\Request;
@@ -40,7 +42,8 @@ class IndexController extends Controller
 
     public function editinfoShow()
     {
-        return view('editinfo');
+        $user = Auth::user();
+        return view('editinfo')->with(['user' => $user]);
     }
 
     public function editinfoStore(EditInfoRequest $request)
@@ -96,6 +99,19 @@ class IndexController extends Controller
     {
         $user = Auth::user();
         return view('profile')->with(['user' => $user]);
+    }
+
+    public function messageStore(MessageRequest $request)
+    {
+        Message::create([
+            'user_id' => auth()->user()->id,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'type' => $request->type,
+            'message' => $request->message,
+        ]);
+        
+        return redirect()->route('profile.show');
     }
 
 

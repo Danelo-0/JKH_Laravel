@@ -17,6 +17,20 @@
             </div>
          </div>
 
+         <div class="row">
+         <div class="col-lg-5">
+         <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+    Текущий элемент ссылка
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">Второй элемент ссылка</a>
+  <a href="#" class="list-group-item list-group-item-action">Третий элемент ссылка</a>
+  <a href="#" class="list-group-item list-group-item-action">Четвертый элемент ссылка</a>
+  <a class="list-group-item list-group-item-action disabled">Отключенный элемент ссылка</a>
+</div>
+</div>
+         </div>
+
          <div class="col-lg-8">
             <div class="card mb-4">
                <div class="card-body">
@@ -101,23 +115,28 @@
                <div class="card mb-4">
                   <div class="card-body">
                      <section class="w-100 p-4 d-flex justify-content-center pb-4">
-                        <form style="width: 40rem;" data-gtm-form-interact-id="0" method="post" action="#">
+                        <form style="width: 40rem;" data-gtm-form-interact-id="0" method="post" action="{{ route('message.store') }}">
+                        @csrf
                            <p class="h4 mb-4">Отправить заявку</p>
 
-                           
-
                            <div class="form-outline mb-4">
+                           @error('address')
+                           <p style='color:red'>{{$message}}</p>
+                           @enderror
                               <input type="text" name='address' class="form-control " value="">
                               <label class="form-label" style="margin-left: 0px;">Адрес</label>
                            </div>
 
                            <div class="form-outline mb-4">
-                              <input type="text" name='tel' class="form-control" value="">
+                           @error('phone')
+                           <p style='color:red'>{{$message}}</p>
+                           @enderror
+                              <input type="text" name='phone' class="form-control" value="">
                               <label class="form-label" style="margin-left: 0px;">Номер телефона</label>
                            </div>
 
                            <div class="form-outline mb-4">
-                              <select class="form-select" aria-label=".form-select-sm example" name="selectMesseng">
+                              <select class="form-select" aria-label=".form-select-sm example" name="type">
                                  <option selected value="Жалоба">Жалоба</option>
                                  <option value="Пожелание">Пожелание</option>
                                  <option value="Сантехника">Сантехника</option>
@@ -128,7 +147,10 @@
                            </div>
 
                            <div class="form-outline mb-4">
-                              <textarea class="form-control" rows="3" name="messeng"></textarea>
+                           @error('message')
+                           <p style='color:red'>{{$message}}</p>
+                           @enderror
+                              <textarea class="form-control" rows="3" name="message"></textarea>
                               <label class="form-label" style="margin-left: 0px;">Сообщение</label>
                            </div>
 
