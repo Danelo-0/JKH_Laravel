@@ -34,6 +34,8 @@ Route::post('/jkh/registration', [IndexController::class, 'registrationStore'])-
 
 Route::get('/jkh/profile', [IndexController::class, 'profileShow'])->name('profile.show');
 
+Route::post('/jkh/profile', [IndexController::class, 'messageStore'])->name('message.store');
+
 Route::get('/jkh/profile/editinfo', [IndexController::class, 'editinfoShow'])->name('editinfo.show');
 
 Route::post('/jkh/profile/editinfo', [IndexController::class, 'editinfoStore'])->name('editinfo.store');

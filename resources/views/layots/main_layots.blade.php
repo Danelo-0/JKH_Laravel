@@ -35,7 +35,7 @@
          @endcannot
                @can('viewLogout')
                <div class="btn-group">
-                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Пользователь</button>
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->login}}</button>
                   <ul class="dropdown-menu">
                      <li><a class="dropdown-item" href="{{route('profile.show')}}">Личный кабинет</a></li>
                      <li><a class="dropdown-item" href="{{route('jkh.index')}}">На главную</a></li>

@@ -11,31 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_infos', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->string('name')->nullable();
-            $table->string('surname')->nullable();
-            $table->string('middle_name')->nullable();
-            $table->bigInteger('passport')->nullable();
-            $table->bigInteger('phone')->nullable();
-            $table->bigInteger('inn')->nullable();
-            $table->bigInteger('snils')->nullable();
+            $table->string('address');
+            $table->bigInteger('phone');
+            $table->string('type');
+            $table->text('message');
+            $table->string('status')->nullable()->default('В обработке');
+
 
             $table->timestamps();
         });
     }
-
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_infos');
+        Schema::dropIfExists('messages');
     }
 };

@@ -18,12 +18,22 @@ class UserInfoSeeder extends Seeder
                 'user_id' => 1,
                 'name' => 'Даниил',
                 'surname' => 'Матвеев',
+                'middle_name' => 'Романович',
+                'phone' => '89324246601',
+                'passport'=> '2345347123',
+                'inn' => '123456789123',
+                'snils' => '4325324534'
             ],
     
             [
                 'user_id' => 2,
                 'name' => 'Кирилл',
                 'surname' => 'Казанцев',
+                'middle_name' => 'Сергеевич',
+                'phone' => '89324246603',
+                'passport'=> '2345347123',
+                'inn' => '123456789123',
+                'snils' => '4325324534'
             ],
         ]);
     }
