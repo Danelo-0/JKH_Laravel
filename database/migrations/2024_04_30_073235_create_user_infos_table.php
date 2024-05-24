@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('phone')->nullable();
             $table->bigInteger('inn')->nullable();
             $table->bigInteger('snils')->nullable();
+            $table->bigInteger('credit')->default(0);
 
             $table->timestamps();
         });

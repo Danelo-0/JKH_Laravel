@@ -22,7 +22,8 @@ class UserInfoSeeder extends Seeder
                 'phone' => '89324246601',
                 'passport'=> '2345347123',
                 'inn' => '123456789123',
-                'snils' => '4325324534'
+                'snils' => '4325324534',
+                'credit' => '0'
             ],
     
             [
@@ -33,7 +34,8 @@ class UserInfoSeeder extends Seeder
                 'phone' => '89324246603',
                 'passport'=> '2345347123',
                 'inn' => '123456789123',
-                'snils' => '4325324534'
+                'snils' => '4325324534',
+                'credit' => '0'
             ],
         ]);
     }
