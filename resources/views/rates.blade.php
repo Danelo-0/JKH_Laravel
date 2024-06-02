@@ -3,8 +3,8 @@
 @section('content')
 <div class='container'>
    <div>
-   <p class="h1">Тарифы на оплату коммунальных услуг</p>
-   <p class="h3">Тариф на отопление в 2023 г.</p>
+      <p class="h1">Тарифы на оплату коммунальных услуг</p>
+      <p class="h3">Тариф на отопление в 2023 г.</p>
       <table class="table table-bordered">
          <thead>
             <tr>

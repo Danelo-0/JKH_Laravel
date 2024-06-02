@@ -22,6 +22,7 @@
          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{{route('jkh.index')}}" class="nav-link px-2">Главная</a></li>
             <li><a href="{{route('ratex.index')}}" class="nav-link px-2">Тарифы</a></li>
+            <li><a href="{{route('news.index')}}" class="nav-link px-2">Новости</a></li>
             <li><a href="{{route('company.index')}}" class="nav-link px-2">О компании</a></li>
             <li><a href="{{route('faq.index')}}" class="nav-link px-2">Вопрос-ответ</a></li>
             
@@ -37,7 +38,12 @@
                <div class="btn-group">
                   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{auth()->user()->login}}</button>
                   <ul class="dropdown-menu">
+                     @cannot('admin')
                      <li><a class="dropdown-item" href="{{route('profile.show')}}">Личный кабинет</a></li>
+                     @endcannot
+                     @can('admin')
+                     <li><a class="dropdown-item" href="{{route('profileAdmin.show')}}">Личный кабинет</a></li>
+                     @endcan
                      <li><a class="dropdown-item" href="{{route('jkh.index')}}">На главную</a></li>
                      <li>
                         <hr class="dropdown-divider">

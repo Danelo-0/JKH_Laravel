@@ -8,11 +8,11 @@
 
       <section class="w-100 p-4 d-flex justify-content-center pb-4">
          <form style="width: 22rem;" data-gtm-form-interact-id="0" method="post" action="{{ route('auth.store') }}">
-         @csrf
+            @csrf
             <p class="h3">Вход</p>
 
             @error('login')
-               <p style='color:red'>{{$message}}</p>
+            <p style='color:red'>{{$message}}</p>
             @enderror
             <div class="form-outline mb-4">
                <input type="text" name='login' class="form-control" value="">
@@ -45,4 +45,3 @@
 </div>
 <!-- FOOTER -->
 @endsection
-

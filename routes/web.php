@@ -20,6 +20,8 @@ Route::get('/jkh/rates', [IndexController::class, 'ratesIndex'])->name('ratex.in
 
 Route::get('/jkh/company', [IndexController::class, 'companyIndex'])->name('company.index');
 
+Route::get('/jkh/news', [IndexController::class, 'newsIndex'])->name('news.index');
+
 Route::get('/jkh/faq', [IndexController::class, 'faqIndex'])->name('faq.index');
 
 Route::get('/jkh/auth', [IndexController::class, 'authIndex'])->name('auth.index');
@@ -33,6 +35,8 @@ Route::get('/jkh/registration', [IndexController::class, 'registrationIndex'])->
 Route::post('/jkh/registration', [IndexController::class, 'registrationStore'])->name('registration.store');
 
 Route::get('/jkh/profile', [IndexController::class, 'profileShow'])->name('profile.show');
+
+Route::get('/jkh/admin', [IndexController::class, 'profileAdminShow'])->name('profileAdmin.show');
 
 Route::post('/jkh/profile', [IndexController::class, 'messageStore'])->name('message.store');
 

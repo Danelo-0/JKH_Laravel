@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('Kirill'),
             'status' => 'admin'
         ],
+
     ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\MessageRequest;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\Message;
+use App\Models\News;
 use App\Models\User;
 use App\Models\User_info;
 use Illuminate\Http\Request;
@@ -46,6 +47,19 @@ class IndexController extends Controller
         return view('editinfo')->with(['user' => $user]);
     }
 
+    public function newsIndex()
+    {
+        $news = News::all();
+        return view('news')->with(['news' => $news]);
+    }
+
+    public function profileAdminShow()
+    {
+        $messages = Message::all();
+
+        return view('profileAdmine')->with(['messages' => $messages]);
+    }
+
     public function editinfoStore(EditInfoRequest $request)
     {
         $userId = Auth::user()->id;
@@ -62,7 +76,14 @@ class IndexController extends Controller
     {
         if(Auth::attempt($request->only('login', 'password')))
         {
-            return redirect()->route('profile.show');
+            if(Auth::user()->status == 'user')
+            {
+                return redirect()->route('profile.show');
+            }
+            else
+            {
+                return redirect()->route('profileAdmin.show');
+            }
         }
 
         return back()->withInput()->withErrors(
